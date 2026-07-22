@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/tree/main/templates/",
+  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
   "templates": [
     {
       "id": "anim_cat_01",
