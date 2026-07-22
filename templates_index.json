@@ -13,6 +13,12 @@
       "category": "Animals",
       "path": "Animals/dog_01"
     },
+     {
+      "id": "anim_dog_02",
+      "name": "Puppy Outline 2",
+      "category": "Animals",
+      "path": "Animals/dog_01"
+    },
     {
       "id": "veh_car_01",
       "name": "Sports Car",
