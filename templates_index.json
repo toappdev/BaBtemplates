@@ -1,0 +1,23 @@
+{
+  "baseUrl": "https://raw.githubusercontent.com/YOUR_USERNAME/brushandblend-templates/main/templates/",
+  "templates": [
+    {
+      "id": "anim_cat_01",
+      "name": "Cute Cat Sketch",
+      "category": "Animals",
+      "path": "Animals/cat_01"
+    },
+    {
+      "id": "anim_dog_01",
+      "name": "Puppy Outline",
+      "category": "Animals",
+      "path": "Animals/dog_01"
+    },
+    {
+      "id": "veh_car_01",
+      "name": "Sports Car",
+      "category": "Vehicles",
+      "path": "Vehicles/car_01"
+    }
+  ]
+}
