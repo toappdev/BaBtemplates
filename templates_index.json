@@ -36,6 +36,18 @@
       "name": "Tortoise",
       "category": "Animals",
       "path": "Animals/temp_6"
+    },
+    {
+      "id": "temp_7",
+      "name": "Elephant",
+      "category": "Animals",
+      "path": "Animals/temp_7"
+    },
+    {
+      "id": "temp_8",
+      "name": "Red Panda",
+      "category": "Animals",
+      "path": "Animals/temp_8"
     }
   ]
 }
