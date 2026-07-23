@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/main/templates/",
+  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
   "templates": [
     {
       "id": "temp_1",
@@ -9,13 +9,13 @@
     },
     {
       "id": "temp_2",
-      "name": "Giraffe",
+      "name": "giraffe",
       "category": "Animals",
       "path": "Animals/temp_2"
     },
     {
       "id": "temp_3",
-      "name": "Elephant",
+      "name": "elephant",
       "category": "Animals",
       "path": "Animals/temp_3"
     },
@@ -28,6 +28,276 @@
     {
       "id": "temp_5",
       "name": "Car",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_6",
+      "name": "Lion",
+      "category": "Animals",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_7",
+      "name": "Tiger",
+      "category": "Animals",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_8",
+      "name": "Cute Puppy",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_9",
+      "name": "Fluffy Cat",
+      "category": "Animals",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_10",
+      "name": "Panda",
+      "category": "Animals",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_11",
+      "name": "Anime Hero",
+      "category": "Animals",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_12",
+      "name": "Anime Girl",
+      "category": "Animals",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_13",
+      "name": "Ninja Warrior",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_14",
+      "name": "Cyber Samurai",
+      "category": "Animals",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_15",
+      "name": "Gothic Castle",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_16",
+      "name": "Modern House",
+      "category": "Vehicles",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_17",
+      "name": "Eiffel Tower",
+      "category": "Vehicles",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_18",
+      "name": "Cartoon Duck",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_19",
+      "name": "Funny Rabbit",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_20",
+      "name": "Comic Bear",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_21",
+      "name": "Chibi Kitten",
+      "category": "Vehicles",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_22",
+      "name": "Chibi Boy",
+      "category": "Vehicles",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_23",
+      "name": "Chibi Princess",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_24",
+      "name": "Fire Dragon",
+      "category": "Animals",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_25",
+      "name": "Magic Unicorn",
+      "category": "Animals",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_26",
+      "name": "Forest Fairy",
+      "category": "Animals",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_27",
+      "name": "Blooming Rose",
+      "category": "Animals",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_28",
+      "name": "Sunflower",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_29",
+      "name": "Tulip Garden",
+      "category": "Animals",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_30",
+      "name": "Delicious Cake",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_31",
+      "name": "Burger & Fries",
+      "category": "Animals",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_32",
+      "name": "Boba Tea",
+      "category": "Animals",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_33",
+      "name": "Kawaii Cloud",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_34",
+      "name": "Kawaii Donut",
+      "category": "Animals",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_35",
+      "name": "Mountain Peak",
+      "category": "Animals",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_36",
+      "name": "Forest Waterfall",
+      "category": "Animals",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_37",
+      "name": "Sunset Beach",
+      "category": "Animals",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_38",
+      "name": "Vintage Camera",
+      "category": "Vehicles",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_39",
+      "name": "Acoustic Guitar",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_40",
+      "name": "Retro Headphones",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_41",
+      "name": "Masked Hero",
+      "category": "Vehicles",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_42",
+      "name": "Cosmic Defender",
+      "category": "Vehicles",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_43",
+      "name": "Tribal Skull",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_44",
+      "name": "Mandala Lotus",
+      "category": "Animals",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_45",
+      "name": "Geometric Wolf",
+      "category": "Animals",
+      "path": "Vehicles/temp_5"
+    },
+    {
+      "id": "temp_46",
+      "name": "Superbike",
+      "category": "Vehicles",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_47",
+      "name": "Jet Plane",
+      "category": "Vehicles",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_48",
+      "name": "Classic Sedan",
+      "category": "Vehicles",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_49",
+      "name": "Line Art Butterfly",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_50",
+      "name": "Minimalist Sun",
       "category": "Vehicles",
       "path": "Vehicles/temp_5"
     }
