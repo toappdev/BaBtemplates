@@ -138,6 +138,30 @@
       "name": "Owl with heart",
       "category": "Animals",
       "path": "Animals/temp_23"
+    },
+    {
+      "id": "temp_24",
+      "name": "Turtle",
+      "category": "Cartoons",
+      "path": "Animals/temp_16"
+    },
+    {
+      "id": "temp_25",
+      "name": "Owl",
+      "category": "Cartoons",
+      "path": "Animals/temp_18"
+    },
+    {
+      "id": "temp_26",
+      "name": "Shark Fish ",
+      "category": "Cartoons",
+      "path": "Animals/temp_14"
+    },
+    {
+      "id": "temp_27",
+      "name": "Foxes",
+      "category": "Cartoons",
+      "path": "Animals/temp_17"
     }
   ]
 }
