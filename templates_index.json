@@ -48,6 +48,96 @@
       "name": "Red Panda",
       "category": "Animals",
       "path": "Animals/temp_8"
+    },
+    {
+      "id": "temp_9",
+      "name": "Flower",
+      "category": "Flowers",
+      "path": "Flowers/temp_9"
+    },
+    {
+      "id": "temp_10",
+      "name": "Hen",
+      "category": "Animals",
+      "path": "Animals/temp_10"
+    },
+    {
+      "id": "temp_11",
+      "name": "Butterfly",
+      "category": "Animals",
+      "path": "Animals/temp_11"
+    },
+    {
+      "id": "temp_12",
+      "name": "parrot with eye patch",
+      "category": "Animals",
+      "path": "Animals/temp_12"
+    },
+    {
+      "id": "temp_13",
+      "name": "Sleeping Dog",
+      "category": "Animals",
+      "path": "Animals/temp_13"
+    },
+    {
+      "id": "temp_14",
+      "name": "Shark Fish ",
+      "category": "Animals",
+      "path": "Animals/temp_14"
+    },
+    {
+      "id": "temp_15",
+      "name": "Starfish",
+      "category": "Animals",
+      "path": "Animals/temp_15"
+    },
+    {
+      "id": "temp_16",
+      "name": "Turtle",
+      "category": "Animals",
+      "path": "Animals/temp_16"
+    },
+    {
+      "id": "temp_17",
+      "name": "Foxes",
+      "category": "Animals",
+      "path": "Animals/temp_17"
+    },
+    {
+      "id": "temp_18",
+      "name": "Owl",
+      "category": "Animals",
+      "path": "Animals/temp_18"
+    },
+    {
+      "id": "temp_19",
+      "name": "Horse",
+      "category": "Animals",
+      "path": "Animals/temp_19"
+    },
+    {
+      "id": "temp_20",
+      "name": "Tiger face",
+      "category": "Animals",
+      "path": "Animals/temp_20"
+    },
+    {
+      "id": "temp_21",
+      "name": "Tiger baby",
+      "category": "Animals",
+      "path": "Animals/temp_21"
+    },
+    {
+      "id": "temp_22",
+      "name": "Camel on beach",
+      "category": "Animals",
+      "path": "Animals/temp_22"
+    },
+    {
+      "id": "temp_23",
+      "name": "Owl with heart",
+      "category": "Animals",
+      "path": "Animals/temp_23"
     }
   ]
 }
