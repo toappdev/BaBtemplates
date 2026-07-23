@@ -1,18 +1,35 @@
 {
   "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
   "templates": [
-       {
-      "id": "anim_dog_01",
-      "name": "Puppy Outline",
-      "category": "Animals",
-      "path": "Animals/dog_01"
-    },
-    
     {
-      "id": "veh_car_01",
-      "name": "Sports Car",
+      "id": "temp_1",
+      "name": "Deer",
+      "category": "Animals",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_2",
+      "name": "giraffe",
+      "category": "Animals",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_3",
+      "name": "elephant",
+      "category": "Animals",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_4",
+      "name": "Car",
       "category": "Vehicles",
-      "path": "Vehicles/car_01"
+      "path": "Vehicles/temp_4"
+    },
+    {
+      "id": "temp_5",
+      "name": "Car",
+      "category": "Vehicles",
+      "path": "Vehicles/temp_5"
     }
   ]
 }
