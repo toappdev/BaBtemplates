@@ -1,5 +1,6 @@
 {
-  "baseUrl": "templates/",
+  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
+  "localbaseUrl": "templates/",
   "templates": [
     {
       "id": "temp_1",
@@ -92,12 +93,6 @@
       "path": "Animals/temp_15"
     },
     {
-      "id": "temp_16",
-      "name": "Turtle",
-      "category": "Animals",
-      "path": "Animals/temp_16"
-    },
-    {
       "id": "temp_17",
       "name": "Foxes",
       "category": "Animals",
@@ -142,7 +137,7 @@
     {
       "id": "temp_24",
       "name": "Turtle",
-      "category": "Cartoons",
+      "category": "Animals",
       "path": "Animals/temp_16"
     },
     {
@@ -162,6 +157,78 @@
       "name": "Foxes",
       "category": "Cartoons",
       "path": "Animals/temp_17"
+    },
+    {
+      "id": "temp_28",
+      "name": "Turtle",
+      "category": "Cartoons",
+      "path": "Animals/temp_16"
+    },
+    {
+      "id": "temp_29",
+      "name": "Owl with heart",
+      "category": "Cartoons",
+      "path": "Animals/temp_23"
+    },
+    {
+      "id": "temp_30",
+      "name": "Camel on beach",
+      "category": "Cartoons",
+      "path": "Animals/temp_22"
+    },
+    {
+      "id": "temp_31",
+      "name": "Deer",
+      "category": "Cartoons",
+      "path": "Animals/temp_1"
+    },
+    {
+      "id": "temp_32",
+      "name": "giraffe",
+      "category": "Cartoons",
+      "path": "Animals/temp_2"
+    },
+    {
+      "id": "temp_33",
+      "name": "elephant",
+      "category": "Cartoons",
+      "path": "Animals/temp_3"
+    },
+    {
+      "id": "temp_34",
+      "name": "Red Panda",
+      "category": "Cartoons",
+      "path": "Animals/temp_8"
+    },
+    {
+      "id": "temp_35",
+      "name": "parrot with eye patch",
+      "category": "Cartoons",
+      "path": "Animals/temp_12"
+    },
+    {
+      "id": "temp_36",
+      "name": "Tiger baby",
+      "category": "Cartoons",
+      "path": "Animals/temp_21"
+    },
+    {
+      "id": "temp_37",
+      "name": "Starfish",
+      "category": "Cartoons",
+      "path": "Animals/temp_15"
+    },
+    {
+      "id": "temp_38",
+      "name": "Tortoise",
+      "category": "Cartoons",
+      "path": "Animals/temp_6"
+    },
+    {
+      "id": "temp_39",
+      "name": "Sleeping Dog",
+      "category": "Cartoons",
+      "path": "Animals/temp_13"
     }
   ]
 }
