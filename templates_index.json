@@ -1,5 +1,5 @@
 {
-  "baseUrl": "templates/",
+  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/main/templates/",
   "templates": [
     {
       "id": "temp_1",
