@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
+  "baseUrl": "templates/",
   "templates": [
     {
       "id": "temp_1",
@@ -9,13 +9,13 @@
     },
     {
       "id": "temp_2",
-      "name": "giraffe",
+      "name": "Giraffe",
       "category": "Animals",
       "path": "Animals/temp_2"
     },
     {
       "id": "temp_3",
-      "name": "elephant",
+      "name": "Elephant",
       "category": "Animals",
       "path": "Animals/temp_3"
     },
