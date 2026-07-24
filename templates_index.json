@@ -232,9 +232,9 @@
     },
     {
       "id": "temp_40",
-      "name": "10 02 42 504 1280",
-      "category": "Aesthetic",
-      "path": "Aesthetic/temp_40"
+      "name": "Fish",
+      "category": "Animals",
+      "path": "Animals/temp_40"
     },
     {
       "id": "temp_41",
@@ -487,6 +487,12 @@
       "name": "Tiger 4824663 1280",
       "category": "Aesthetic",
       "path": "Aesthetic/temp_82"
+    },
+    {
+      "id": "temp_83",
+      "name": "Fish",
+      "category": "Cartoons",
+      "path": "Animals/temp_40"
     }
   ]
 }
