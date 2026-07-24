@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Aesthetic",
+    "details": "Line art, Mandalas, Minimalist designs, Typography"
+  },
+  {
+    "name": "Animals",
+    "details": "Dogs, Cats, Wild Animals, Birds, Sea Creatures"
+  },
+  {
+    "name": "Anime",
+    "details": "Anime characters, Eyes, Hair styles, Action poses"
+  },
+  {
+    "name": "Architecture",
+    "details": "Buildings, Castles, Houses, Landmarks"
+  },
+  {
+    "name": "Cartoons",
+    "details": "Classic Cartoons, Comic Characters, Doodles"
+  },
+  {
+    "name": "Chibi",
+    "details": "Mini cute anime characters, Chibi avatars"
+  },
+  {
+    "name": "Fantasy",
+    "details": "Dragons, Unicorns, Fairies, Mythical Beasts"
+  },
+  {
+    "name": "Flowers",
+    "details": "Roses, Sunflowers, Floral Patterns, Plants"
+  },
+  {
+    "name": "Food & Drinks",
+    "details": "Cakes, Sweets, Burgers, Coffee, Boba"
+  },
+  {
+    "name": "Kawaii",
+    "details": "Cute stickers, Emoticons, Soft aesthetic items"
+  },
+  {
+    "name": "Nature",
+    "details": "Landscapes, Mountains, Trees, Sunsets"
+  },
+  {
+    "name": "Objects",
+    "details": "Fashion, Shoes, Instruments, Everyday items"
+  },
+  {
+    "name": "Superheroes",
+    "details": "Comic heroes, Sci-Fi characters"
+  },
+  {
+    "name": "Tattoos & Line Art",
+    "details": "Tribal, Skulls, Geometric, Badges"
+  },
+  {
+    "name": "Vehicles",
+    "details": "Cars, Supercars, Motorcycles, Aircraft"
+  }
+]

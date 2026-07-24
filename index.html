@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
+
     <style>
         :root {
             --primary: #4f46e5;
@@ -39,7 +42,7 @@
             color: var(--text-main);
             min-height: 100vh;
             padding-bottom: 60px;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 15% 15%, rgba(79, 70, 229, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
             background-attachment: fixed;
@@ -491,6 +494,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Header -->
@@ -520,7 +524,8 @@
         <div class="controls-bar">
             <div class="search-wrapper">
                 <i class="bi bi-search"></i>
-                <input type="text" id="searchInput" class="search-input" placeholder="Search templates by name, ID, or category..." onkeyup="onSearchInput()">
+                <input type="text" id="searchInput" class="search-input"
+                    placeholder="Search templates by name, ID, or category..." onkeyup="onSearchInput()">
             </div>
             <div class="category-tabs" id="categoryTabs">
                 <button class="cat-btn active" onclick="filterCategory('ALL', this)">
@@ -553,7 +558,8 @@
             <div class="modal-body">
                 <img id="modalImg" class="modal-img-preview" src="" alt="Template Full Image">
                 <div style="text-align: center;">
-                    <div style="font-family: monospace; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;" id="modalPath"></div>
+                    <div style="font-family: monospace; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;"
+                        id="modalPath"></div>
                     <div style="margin-top: 0.5rem;" id="modalCategories"></div>
                 </div>
             </div>
@@ -568,7 +574,7 @@
 
     <script>
         const jsonUrl = "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates_index.json";
-        
+
         let allTemplatesData = {
             baseUrl: "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
             localbaseUrl: "templates/",
@@ -612,8 +618,10 @@
             // Consolidate categories
             const categoriesMap = new Map();
             templates.forEach(t => {
-                const cat = t.category || 'General';
-                categoriesMap.set(cat, (categoriesMap.get(cat) || 0) + 1);
+                const cats = (t.category || 'General').split(',').map(c => c.trim()).filter(c => c);
+                cats.forEach(cat => {
+                    categoriesMap.set(cat, (categoriesMap.get(cat) || 0) + 1);
+                });
             });
 
             document.getElementById('catCount').innerText = categoriesMap.size;
@@ -659,13 +667,13 @@
         }
 
         function resolveImageUrls(item) {
-            const basePath = item.path || (item.category + '/' + item.id);
+            const basePath = item.path || item.id;
             const remoteBase = allTemplatesData.baseUrl || "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/";
-            
-            const thumbUrl = `${remoteBase}${basePath}_thumb.png`;
-            const fullUrl = `${remoteBase}${basePath}_full.png`;
-            const localThumbUrl = `templates/${basePath}_thumb.png`;
-            const localFullUrl = `templates/${basePath}_full.png`;
+
+            const thumbUrl = `${remoteBase}thumb/${basePath}_thumb.png`;
+            const fullUrl = `${remoteBase}full/${basePath}_full.png`;
+            const localThumbUrl = `templates/thumb/${basePath}_thumb.png`;
+            const localFullUrl = `templates/full/${basePath}_full.png`;
 
             return { thumbUrl, fullUrl, localThumbUrl, localFullUrl };
         }
@@ -677,9 +685,10 @@
             const templates = allTemplatesData.templates || [];
 
             const filtered = templates.filter(t => {
-                const matchesCat = (activeCategory === 'ALL' || (t.category && t.category.toLowerCase() === activeCategory.toLowerCase()));
+                const cats = (t.category || 'General').split(',').map(c => c.trim().toLowerCase());
+                const matchesCat = (activeCategory === 'ALL' || cats.includes(activeCategory.toLowerCase()));
                 const query = currentQuery;
-                const matchesSearch = !query || 
+                const matchesSearch = !query ||
                     (t.name && t.name.toLowerCase().includes(query)) ||
                     (t.id && t.id.toLowerCase().includes(query)) ||
                     (t.category && t.category.toLowerCase().includes(query)) ||
@@ -700,12 +709,14 @@
             filtered.forEach(item => {
                 const { thumbUrl, fullUrl, localThumbUrl, localFullUrl } = resolveImageUrls(item);
                 const safeName = escapeHtml(item.name || item.id);
+                const cats = (item.category || 'General').split(',').map(c => c.trim()).filter(c => c);
+                const catBadgesHtml = cats.map(c => `<span class="badge-cat">${escapeHtml(c)}</span>`).join(' ');
 
                 html += `
                     <div class="template-card">
                         <div class="card-img-container" style="cursor: pointer;" onclick="openPreviewModal('${escapeHtml(item.id)}', '${safeName}', '${escapeHtml(item.category)}', '${fullUrl}', '${thumbUrl}', '${localFullUrl}', '${localThumbUrl}')">
                             <div class="card-badges">
-                                <span class="badge-cat">${escapeHtml(item.category || 'General')}</span>
+                                <div style="display: flex; gap: 0.25rem; flex-wrap: wrap;">${catBadgesHtml}</div>
                                 <span class="badge-id">${escapeHtml(item.id)}</span>
                             </div>
                             <img src="${thumbUrl}" alt="${safeName}" loading="lazy" 
@@ -713,7 +724,6 @@
                         </div>
                         <div class="card-body">
                             <h4 class="card-title" title="${safeName}">${safeName}</h4>
-                            <div class="card-path" title="${item.path}"><i class="bi bi-file-earmark-image me-1"></i>${item.path}</div>
                             <div class="card-actions">
                                 <button class="btn-action btn-preview" onclick="openPreviewModal('${escapeHtml(item.id)}', '${safeName}', '${escapeHtml(item.category)}', '${fullUrl}', '${thumbUrl}', '${localFullUrl}', '${localThumbUrl}')">
                                     <i class="bi bi-eye"></i> Preview
@@ -748,13 +758,16 @@
         function openPreviewModal(id, name, category, fullUrl, thumbUrl, localFullUrl, localThumbUrl) {
             document.getElementById('modalTitle').innerText = `${name} (${id})`;
             document.getElementById('modalPath').innerText = `ID: ${id}`;
-            document.getElementById('modalCategories').innerHTML = `<span class="badge-cat">${category}</span>`;
-            
+
+            const cats = (category || 'General').split(',').map(c => c.trim()).filter(c => c);
+            const catBadgesHtml = cats.map(c => `<span class="badge-cat">${escapeHtml(c)}</span>`).join(' ');
+            document.getElementById('modalCategories').innerHTML = catBadgesHtml;
+
             const modalImg = document.getElementById('modalImg');
             modalImg.dataset.modalFailStep = "";
             modalImg.src = fullUrl;
-            
-            modalImg.onerror = function() {
+
+            modalImg.onerror = function () {
                 if (!modalImg.dataset.modalFailStep) {
                     modalImg.dataset.modalFailStep = "1";
                     modalImg.src = localFullUrl || thumbUrl;
@@ -768,7 +781,7 @@
             };
 
             const downloadBtn = document.getElementById('modalDownloadBtn');
-            downloadBtn.onclick = function() {
+            downloadBtn.onclick = function () {
                 downloadImage(fullUrl, `${id}_${name}.png`);
             };
 
@@ -816,4 +829,5 @@
         }
     </script>
 </body>
+
 </html>
