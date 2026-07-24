@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaB Templates Gallery & Downloader</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --accent: #06b6d4;
+            --bg-dark: #0f172a;
+            --bg-surface: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding-bottom: 60px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(79, 70, 229, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.15) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Header / Hero */
+        header {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 1.5rem;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            background: linear-gradient(135deg, #a5b4fc, #67e8f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .brand i {
+            font-size: 1.6rem;
+            color: var(--accent);
+            -webkit-text-fill-color: initial;
+        }
+
+        .stats-pills {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .stat-badge {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .stat-badge strong {
+            color: var(--text-main);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Search & Filter Section */
+        .controls-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 1.25rem;
+            border-radius: 1.25rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 3rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 0.85rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            gap: 0.6rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+        }
+
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 0.5rem 1.1rem;
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .cat-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+        }
+
+        .cat-btn.active {
+            background: linear-gradient(135deg, var(--primary), #6366f1);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .cat-count {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.15rem 0.45rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+
+        /* Photo Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card Styles */
+        .template-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .template-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-img-container {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 1rem;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .template-card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .card-badges {
+            position: absolute;
+            top: 0.85rem;
+            left: 0.85rem;
+            right: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .badge-cat {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #818cf8;
+            padding: 0.25rem 0.65rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-id {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #38bdf8;
+            padding: 0.25rem 0.65rem;
+            border-radius: 0.5rem;
+            font-size: 0.75rem;
+            font-family: monospace;
+            font-weight: 700;
+        }
+
+        .card-body {
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-path {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-family: monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        .btn-action {
+            flex: 1;
+            padding: 0.6rem 0.8rem;
+            border-radius: 0.75rem;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn-preview {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-preview:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 1.5rem;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-muted);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .modal-img-preview {
+            max-width: 100%;
+            max-height: 55vh;
+            object-fit: contain;
+            border-radius: 1rem;
+            background: #ffffff;
+            padding: 1rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .modal-footer {
+            padding: 1.25rem 1.5rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--glass-bg);
+            border: 1px dashed var(--glass-border);
+            border-radius: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 640px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .templates-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="brand">
+                <i class="bi bi-images"></i>
+                BaB Templates Gallery
+            </a>
+            <div class="stats-pills">
+                <div class="stat-badge">
+                    <i class="bi bi-collection-fill text-indigo-400"></i>
+                    <span>Total: <strong id="totalCount">0</strong></span>
+                </div>
+                <div class="stat-badge">
+                    <i class="bi bi-folder-fill text-cyan-400"></i>
+                    <span>Categories: <strong id="catCount">0</strong></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main>
+
+        <!-- Search & Category Filters -->
+        <div class="controls-bar">
+            <div class="search-wrapper">
+                <i class="bi bi-search"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search templates by name, ID, or category..." onkeyup="onSearchInput()">
+            </div>
+            <div class="category-tabs" id="categoryTabs">
+                <button class="cat-btn active" onclick="filterCategory('ALL', this)">
+                    <i class="bi bi-grid-fill"></i> All <span class="cat-count" id="countAll">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Templates Grid -->
+        <div class="templates-grid" id="templatesGrid">
+            <!-- Cards rendered dynamically -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state d-none">
+            <i class="bi bi-search"></i>
+            <h3>No Templates Found</h3>
+            <p>Try searching for a different keyword or select another category filter.</p>
+        </div>
+
+    </main>
+
+    <!-- Full Image Preview Modal -->
+    <div class="modal-overlay" id="previewModal" onclick="closeModalOnOverlay(event)">
+        <div class="modal-card">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Template Details</div>
+                <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="modal-body">
+                <img id="modalImg" class="modal-img-preview" src="" alt="Template Full Image">
+                <div style="text-align: center;">
+                    <div style="font-family: monospace; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;" id="modalPath"></div>
+                    <div style="margin-top: 0.5rem;" id="modalCategories"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-action btn-preview" onclick="closeModal()">Close</button>
+                <button class="btn-action btn-download" id="modalDownloadBtn">
+                    <i class="bi bi-download"></i> Download Full Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const jsonUrl = "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates_index.json";
+        
+        let allTemplatesData = {
+            baseUrl: "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/",
+            localbaseUrl: "templates/",
+            templates: []
+        };
+        let activeCategory = 'ALL';
+        let currentQuery = '';
+
+        // Initialize and load templates_index.json
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchTemplatesIndex();
+        });
+
+        async function fetchTemplatesIndex() {
+            try {
+                // Fetch from specified GitHub raw URL
+                const response = await fetch(jsonUrl);
+                if (!response.ok) throw new Error('HTTP status ' + response.status);
+                const data = await response.json();
+                processData(data);
+            } catch (err) {
+                console.warn('Could not load remote templates_index.json, trying local fallback:', err);
+                try {
+                    const localResp = await fetch('templates_index.json');
+                    if (!localResp.ok) throw new Error('Local HTTP status ' + localResp.status);
+                    const localData = await localResp.json();
+                    processData(localData);
+                } catch (localErr) {
+                    console.warn('Could not load local templates_index.json:', localErr);
+                }
+            }
+        }
+
+        function processData(data) {
+            allTemplatesData = data;
+            const templates = data.templates || [];
+
+            // Update stats
+            document.getElementById('totalCount').innerText = templates.length;
+
+            // Consolidate categories
+            const categoriesMap = new Map();
+            templates.forEach(t => {
+                const cat = t.category || 'General';
+                categoriesMap.set(cat, (categoriesMap.get(cat) || 0) + 1);
+            });
+
+            document.getElementById('catCount').innerText = categoriesMap.size;
+
+            // Render category filter tabs
+            renderCategoryTabs(categoriesMap, templates.length);
+
+            // Render main grid
+            renderGrid();
+        }
+
+        function renderCategoryTabs(categoriesMap, totalCount) {
+            const container = document.getElementById('categoryTabs');
+            document.getElementById('countAll').innerText = totalCount;
+
+            let html = `
+                <button class="cat-btn ${activeCategory === 'ALL' ? 'active' : ''}" onclick="filterCategory('ALL', this)">
+                    <i class="bi bi-grid-fill"></i> All <span class="cat-count">${totalCount}</span>
+                </button>
+            `;
+
+            categoriesMap.forEach((count, cat) => {
+                html += `
+                    <button class="cat-btn ${activeCategory === cat ? 'active' : ''}" onclick="filterCategory('${cat}', this)">
+                        ${cat} <span class="cat-count">${count}</span>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function filterCategory(category, btn) {
+            activeCategory = category;
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            renderGrid();
+        }
+
+        function onSearchInput() {
+            currentQuery = document.getElementById('searchInput').value.toLowerCase().trim();
+            renderGrid();
+        }
+
+        function resolveImageUrls(item) {
+            const basePath = item.path || (item.category + '/' + item.id);
+            const remoteBase = allTemplatesData.baseUrl || "https://raw.githubusercontent.com/toappdev/BaBtemplates/refs/heads/main/templates/";
+            
+            const thumbUrl = `${remoteBase}${basePath}_thumb.png`;
+            const fullUrl = `${remoteBase}${basePath}_full.png`;
+            const localThumbUrl = `templates/${basePath}_thumb.png`;
+            const localFullUrl = `templates/${basePath}_full.png`;
+
+            return { thumbUrl, fullUrl, localThumbUrl, localFullUrl };
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('templatesGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            const templates = allTemplatesData.templates || [];
+
+            const filtered = templates.filter(t => {
+                const matchesCat = (activeCategory === 'ALL' || (t.category && t.category.toLowerCase() === activeCategory.toLowerCase()));
+                const query = currentQuery;
+                const matchesSearch = !query || 
+                    (t.name && t.name.toLowerCase().includes(query)) ||
+                    (t.id && t.id.toLowerCase().includes(query)) ||
+                    (t.category && t.category.toLowerCase().includes(query)) ||
+                    (t.path && t.path.toLowerCase().includes(query));
+
+                return matchesCat && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('d-none');
+                return;
+            }
+
+            emptyState.classList.add('d-none');
+
+            let html = '';
+            filtered.forEach(item => {
+                const { thumbUrl, fullUrl, localThumbUrl, localFullUrl } = resolveImageUrls(item);
+                const safeName = escapeHtml(item.name || item.id);
+
+                html += `
+                    <div class="template-card">
+                        <div class="card-img-container" style="cursor: pointer;" onclick="openPreviewModal('${escapeHtml(item.id)}', '${safeName}', '${escapeHtml(item.category)}', '${fullUrl}', '${thumbUrl}', '${localFullUrl}', '${localThumbUrl}')">
+                            <div class="card-badges">
+                                <span class="badge-cat">${escapeHtml(item.category || 'General')}</span>
+                                <span class="badge-id">${escapeHtml(item.id)}</span>
+                            </div>
+                            <img src="${thumbUrl}" alt="${safeName}" loading="lazy" 
+                                 onerror="handleImageFallback(this, '${localThumbUrl}', '${fullUrl}', '${localFullUrl}')">
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title" title="${safeName}">${safeName}</h4>
+                            <div class="card-path" title="${item.path}"><i class="bi bi-file-earmark-image me-1"></i>${item.path}</div>
+                            <div class="card-actions">
+                                <button class="btn-action btn-preview" onclick="openPreviewModal('${escapeHtml(item.id)}', '${safeName}', '${escapeHtml(item.category)}', '${fullUrl}', '${thumbUrl}', '${localFullUrl}', '${localThumbUrl}')">
+                                    <i class="bi bi-eye"></i> Preview
+                                </button>
+                                <button class="btn-action btn-download" onclick="downloadImage('${fullUrl}', '${escapeHtml(item.id)}_${safeName}.png')">
+                                    <i class="bi bi-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        function handleImageFallback(img, fullUrl, localThumbUrl, localFullUrl) {
+            if (!img.dataset.failStep) {
+                img.dataset.failStep = "1";
+                img.src = fullUrl;
+            } else if (img.dataset.failStep === "1") {
+                img.dataset.failStep = "2";
+                img.src = localThumbUrl;
+            } else if (img.dataset.failStep === "2") {
+                img.dataset.failStep = "3";
+                img.src = localFullUrl;
+            } else {
+                img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='100%25' height='100%25' fill='%231e293b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%2394a3b8' font-family='sans-serif' font-size='14'%3EImage Not Found%3C/text%3E%3C/svg%3E";
+            }
+        }
+
+        function openPreviewModal(id, name, category, fullUrl, thumbUrl, localFullUrl, localThumbUrl) {
+            document.getElementById('modalTitle').innerText = `${name} (${id})`;
+            document.getElementById('modalPath').innerText = `ID: ${id}`;
+            document.getElementById('modalCategories').innerHTML = `<span class="badge-cat">${category}</span>`;
+            
+            const modalImg = document.getElementById('modalImg');
+            modalImg.dataset.modalFailStep = "";
+            modalImg.src = fullUrl;
+            
+            modalImg.onerror = function() {
+                if (!modalImg.dataset.modalFailStep) {
+                    modalImg.dataset.modalFailStep = "1";
+                    modalImg.src = localFullUrl || thumbUrl;
+                } else if (modalImg.dataset.modalFailStep === "1") {
+                    modalImg.dataset.modalFailStep = "2";
+                    modalImg.src = thumbUrl;
+                } else if (modalImg.dataset.modalFailStep === "2") {
+                    modalImg.dataset.modalFailStep = "3";
+                    modalImg.src = localThumbUrl || "";
+                }
+            };
+
+            const downloadBtn = document.getElementById('modalDownloadBtn');
+            downloadBtn.onclick = function() {
+                downloadImage(fullUrl, `${id}_${name}.png`);
+            };
+
+            document.getElementById('previewModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('previewModal').classList.remove('active');
+        }
+
+        function closeModalOnOverlay(e) {
+            if (e.target.id === 'previewModal') {
+                closeModal();
+            }
+        }
+
+        async function downloadImage(imageSrc, fileName) {
+            try {
+                const response = await fetch(imageSrc);
+                if (!response.ok) throw new Error('Fetch failed');
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            } catch (err) {
+                // Direct anchor download trigger fallback
+                const a = document.createElement('a');
+                a.href = imageSrc;
+                a.download = fileName;
+                a.target = '_blank';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        }
+
+        function escapeHtml(str) {
+            return String(str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+        }
+    </script>
+</body>
+</html>
