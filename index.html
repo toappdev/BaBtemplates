@@ -235,7 +235,9 @@
         .card-img-container {
             position: relative;
             aspect-ratio: 1 / 1;
-            background: #ffffff;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+            background-size: 14px 14px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -445,14 +447,72 @@
             gap: 1.25rem;
         }
 
-        .modal-img-preview {
-            max-width: 100%;
-            max-height: 55vh;
-            object-fit: contain;
+        .modal-img-box {
+            background-color: #ffffff;
             border-radius: 1rem;
-            background: #ffffff;
             padding: 1rem;
             border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 100%;
+            max-height: 55vh;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-img-box.bg-checkered {
+            background-color: #ffffff !important;
+            background-image: repeating-conic-gradient(#cbd5e1 0% 25%, #ffffff 0% 50%) !important;
+            background-size: 16px 16px !important;
+        }
+
+        .modal-img-preview {
+            max-width: 100%;
+            max-height: 50vh;
+            object-fit: contain;
+        }
+
+        .bg-picker-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .bg-picker-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-right: 0.25rem;
+        }
+
+        .bg-picker-btn {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .bg-picker-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .bg-picker-btn.active {
+            border-color: #6366f1;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+            transform: scale(1.1);
+        }
+
+        .bg-checkerboard-btn {
+            background-image: repeating-conic-gradient(#cbd5e1 0% 25%, #ffffff 0% 50%) !important;
+            background-size: 8px 8px !important;
         }
 
         .modal-footer {
@@ -556,9 +616,22 @@
                 <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
             </div>
             <div class="modal-body">
-                <img id="modalImg" class="modal-img-preview" src="" alt="Template Full Image">
+                <div class="modal-img-box" id="modalImgBox">
+                    <img id="modalImg" class="modal-img-preview" src="" alt="Template Full Image">
+                </div>
+
+                <!-- Background Color Switcher Toolbar -->
+                <div class="bg-picker-bar">
+                    <span class="bg-picker-label"><i class="bi bi-palette"></i> Background:</span>
+                    <button class="bg-picker-btn active" style="background: #ffffff;" onclick="setModalBgColor('#ffffff', this)" title="White"></button>
+                    <button class="bg-picker-btn" style="background: #0f172a;" onclick="setModalBgColor('#0f172a', this)" title="Dark Navy"></button>
+                    <button class="bg-picker-btn" style="background: #64748b;" onclick="setModalBgColor('#64748b', this)" title="Gray"></button>
+                    <button class="bg-picker-btn" style="background: #fef3c7;" onclick="setModalBgColor('#fef3c7', this)" title="Warm Cream"></button>
+                    <button class="bg-picker-btn bg-checkerboard-btn" onclick="setModalBgColor('checkered', this)" title="Checkerboard Pattern"></button>
+                </div>
+
                 <div style="text-align: center;">
-                    <div style="font-family: monospace; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;"
+                    <div style="font-family: monospace; color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;"
                         id="modalPath"></div>
                     <div style="margin-top: 0.5rem;" id="modalCategories"></div>
                 </div>
@@ -786,6 +859,21 @@
             };
 
             document.getElementById('previewModal').classList.add('active');
+        }
+
+        function setModalBgColor(color, btn) {
+            const box = document.getElementById('modalImgBox');
+            if (!box) return;
+            document.querySelectorAll('.bg-picker-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            if (color === 'checkered') {
+                box.style.backgroundColor = '#ffffff';
+                box.classList.add('bg-checkered');
+            } else {
+                box.classList.remove('bg-checkered');
+                box.style.backgroundColor = color;
+            }
         }
 
         function closeModal() {

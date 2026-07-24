@@ -463,6 +463,18 @@
       "name": "5697287 1280 (21)",
       "category": "Flowers",
       "path": "temp_94"
+    },
+    {
+      "id": "temp_95",
+      "name": "Home",
+      "category": "Aesthetic,Architecture",
+      "path": "temp_95"
+    },
+    {
+      "id": "temp_96",
+      "name": "Castle",
+      "category": "Architecture",
+      "path": "temp_96"
     }
   ]
 }
